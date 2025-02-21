@@ -1,0 +1,401 @@
+<html lang="en">
+
+<head>
+    <!-- Css -->
+    <style>
+        .center {
+            text-align: center;
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+            background: rgb(254, 255, 255);
+        }
+
+        .center-box {
+            text-align: center;
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+            border: 3px solid rgb(0, 127, 127);
+            border-radius: 20px;
+            background: rgb(254, 255, 255);
+        }
+
+        .button {
+            text-align: center;
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: solid;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            background: rgb(128, 0, 256);
+            color: white;
+        }
+
+        .button:hover {
+            background: rgb(0, 200, 100);
+        }
+
+        .button-disabled {
+            background: #ccc;
+            color: #777;
+            cursor: not-allowed;
+        }
+
+        form {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            font-family: Roboto;
+        }
+
+        h5 {
+            font-family: Roboto;
+        }
+
+        label {
+            font-family: Roboto;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        function show(shown, hidden) {
+            document.getElementById(shown).style.display = 'block';
+            document.getElementById(hidden).style.display = 'none';
+            return false;
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+<!-- Main Page -->
+
+<div id="Page0">
+    <div class="center">
+        <h2 style="font-family:Roboto">Welcome To Mart</h2>
+            <button onclick="return show('Page1','Page0');" class="button">Login</button>
+            <button onclick="return show('Page2','Page0');" class="button">Register</button>
+            <button onclick="return show('Page3','Page0');" class="button">Inventory</button>
+            <button onclick="return show('Page4','Page0');" class="button">Admin Menu</button>
+            <button onclick="return show('Page8','Page0');" class="button">Customer Menu</button>
+            <button onclick="return show('Page12','Page0');" class="button">Employee Menu</button>
+
+    </div>
+</div>
+
+
+
+<!-- Page 1 Login Page -->
+
+<div id="Page1" style="display:none">
+    <div class="center-box">
+
+        <h2> Login Page </h2>
+
+        <form action="LoginServlet" method="post">
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <input type="submit" value="Login" class="button">
+        </form>
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page2','Page1');" class="button">New Account</button>
+    </div>
+</div>
+
+
+
+<!-- Page 2 Register Page -->
+
+<div id="Page2" style="display:none">
+    <div class="center-box">
+
+        <h2> Creating New Account </h2>
+
+        <form action="RegisterServlet" method="post">
+
+            <label for="new_username">New Username:</label>
+            <input type="text" id="new_username" name="new_username" required><br><br>
+
+            <label for="new_password">New Password:</label>
+            <input type="password" id="new_password" name="new_password" required><br><br>
+
+            <input type="submit" value="Register" class="button">
+        </form>
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page1','Page2');" class="button">Back to Login</button>
+    </div>
+</div>
+
+
+
+<!-- Page 3 Inventory Menu Page -->
+
+<div id="Page3" style="display:none">
+    <div class="center-box">
+
+        <h2>Inventory Management</h2>
+        <br>
+        <h2>Item Table</h2>
+        <br>
+
+        <button onclick="return show('Page5','Page3');" class="button"> Add Item </button>
+        <button onclick="return show('Page7','Page3');" class="button"> Edit Item </button>
+
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page0','Page3');" class="button">Back</button>
+    </div>
+</div>
+
+
+
+<!-- Page 4 Admin Menu -->
+
+<div id="Page4" style="display:none">
+    <div class="center-box">
+
+        <h2>Admin Menu</h2>
+        <button onclick="return show('Page3','Page4');" class="button"> Inventory </button>
+        <button onclick="return show('Page10','Page4');" class="button"> Employee </button>
+        <button onclick="return show('Page11','Page4');" class="button"> Customer </button>
+
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page0','Page4');" class="button">Back to Login</button>
+    </div>
+</div>
+
+
+
+<!-- Page 5 Add Item Page -->
+
+<div id="Page5" style="display:none">
+    <div class="center-box">
+
+        <h2>New Item Page</h2>
+
+        <form action="InventoryServlet" method="post">
+
+                <label for="add_item_name">Item Name</label>
+                <input type="text" id="add_item_name" name="item_name" required><br><br>
+
+                <label for="add_price">Price</label>
+                <input type="text" id="add_price" name="price" required><br><br>
+
+                <label for="add_quantity">Quantity</label>
+                <input type="text" id="add_quantity" name="quantity" required><br><br>
+
+                <label for="add_description">Description</label>
+                <input type="text" id="add_description" name="description" required><br><br>
+
+            <input type="submit" value="Add Item" class="button">
+        </form>
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page3','Page5');" class="button">Back</button>
+    </div>
+    </div>
+
+
+
+<!-- Page 7 Edit Inventory -->
+
+<div id="Page7" style="display:none">
+    <div class="center-box">
+
+        <h2>Edit Inventory</h2>
+        <br>
+        <h2>Item Table</h2>
+        <br>
+
+        <form action="InventoryServlet" method="post">
+
+            <label for="item_id">Item Id</label>
+            <input type="text" id="item_id" name="item_id" required><br><br>
+
+            <label for="item_name">Item Name</label>
+            <input type="text" id="item_name" name="item_name" required><br><br>
+
+            <label for="item_price">Price</label>
+            <input type="text" id="item_price" name="item_price" required><br><br>
+
+            <label for="item_quantity">Quantity</label>
+            <input type="text" id="item_quantity" name="item_quantity" required><br><br>
+
+            <label for="item_description">Description</label>
+            <input type="text" id="item_description" name="item_description" required><br><br>
+
+            <input type="submit" value="Edit Item" class="button">
+
+        </form>
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page3','Page7');" class="button">Back</button>
+    </div>
+</div>
+
+
+
+<!-- Page 8 Customer Profile -->
+
+<div id="Page8" style="display:none">
+    <div class="center-box">
+
+        <h2>Customer Details</h2>
+
+        <form action="CustomerServlet" method="post">
+
+            <h2> Inventory Table </h2>
+            <br>
+            <h2> Cart Table</h2>
+            <br>
+
+            <button onclick="return show('Page9','Page8');" class="button">CheckOut</button>
+
+            <input type="submit" value="Edit Cart" class="button">
+
+        </form>
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page1','Page8');" class="button">Back to Login</button>
+    </div>
+</div>
+
+
+
+<!-- Page 9 Customer Cart Checkout-->
+
+<div id="Page9" style="display:none">
+    <div class="center-box">
+
+        <h2> Customer Cart </h2>
+
+        <form action="CustomerServlet" method="post">
+
+            <h2> Cart Table</h2>
+            <br>
+            <h5> Totals: </h5>
+            <br>
+            <h5> Wallet: </h5>
+            <br>
+            <input type="submit" value="Check Out" class="button">
+
+        </form>
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page8','Page9');" class="button">Back</button>
+    </div>
+</div>
+
+
+
+<!-- Page 10 Employee Management -->
+
+<div id="Page10" style="display:none">
+    <div class="center-box">
+
+        <h2> Employment Management</h2>
+        <br>
+        <h2> Employee Table</h2>
+        <br>
+        <h2> Add Employee </h2>
+        <br>
+        <h2> Remove Employee </h2>
+        <br>
+        <input type="submit" value="Save Changes" class="button">
+
+    </div>
+    <div class="center">
+        <button onclick="return show('Page4','Page10');" class="button">Back</button>
+    </div>
+</div>
+
+
+
+<!-- Page 11 Customer Management -->
+
+<div id="Page11" style="display:none">
+    <div class="center-box">
+
+        <h2> Customer Management</h2>
+        <br>
+        <h2> Customer Table</h2>
+        <br>
+        <h2> Add Customer </h2>
+        <br>
+        <h2> Remove Customer </h2>
+        <br>
+        <input type="submit" value="Save Changes" class="button">
+
+    </div>
+    <div class="center">
+        <button onclick="return show('Page4','Page11');" class="button">Back</button>
+    </div>
+</div>
+
+
+
+<!-- Page 12 Employee Profile -->
+
+<div id="Page12" style="display:none">
+    <div class="center-box">
+
+        <h2>Employee Details</h2>
+
+        <form action="InventoryServlet" method="post">
+
+            <h2> Inventory Table </h2>
+            <br>
+
+            <button onclick="return show('Page7','Page12');" class="button">Inventory Management</button>
+
+
+        </form>
+    </div>
+
+    <div class="center">
+        <button onclick="return show('Page0','Page12');" class="button">Back to Login</button>
+    </div>
+</div>
+
+</body>
+
+</html>

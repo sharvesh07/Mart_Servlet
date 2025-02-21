@@ -1,0 +1,143 @@
+:root {
+  --primary-color: #8000ff;
+  --accent-color: #00c864;
+  --accent-hover: #00994d;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+  --container-bg: #fff;
+  --border-color: #ddd;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--container-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+h2 {
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+h3 {
+  margin-top: 30px;
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+/* Centered Text */
+.center {
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Buttons */
+button, .button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+button:hover, .button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Form Styles */
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Submit Button (stretched) */
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Warning/Error Message */
+.warning {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  button, .button {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
